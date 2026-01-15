@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": "591425e7-4c6e-4ebb-825c-67b1c4e1cdd9",
+    "createdAt": "2026-01-15T22:35:06.176Z",
+    "updatedAt": "2026-01-15T22:35:06.176Z",
+    "name": "Baikal i9",
+    "price": 500,
+    "isAvailable": true,
+    "tags": []
+  },
+  {
+    "id": "572ff0fd-869b-4be9-bcec-44341bbb4c86",
+    "createdAt": "2026-01-15T22:43:48.324Z",
+    "updatedAt": "2026-01-15T22:43:48.324Z",
+    "name": "Baikal i9",
+    "price": 500,
+    "isAvailable": true,
+    "tags": []
+  },
+  {
+    "id": "3e326804-1412-4e26-b5cf-1fc29390f9b8",
+    "createdAt": "2026-01-15T22:49:12.849Z",
+    "updatedAt": "2026-01-15T22:49:12.849Z",
+    "name": "Baikal i9",
+    "price": 500,
+    "isAvailable": true,
+    "tags": []
+  },
+  {
+    "id": "6adb246d-91ca-4ebc-9bf9-7e0d733b983e",
+    "createdAt": "2026-01-15T22:53:33.696Z",
+    "updatedAt": "2026-01-15T22:53:33.696Z",
+    "name": "Baikal i9",
+    "price": 500,
+    "isAvailable": true,
+    "tags": []
+  }
+]

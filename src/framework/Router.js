@@ -11,8 +11,8 @@ class Router {
 
     add(method, path, handler) {
         const paramNames = [];
-        const regexPath = path.replace(/:[^\/]+/g, (_, key) => {
-            paramNames.push(key);
+        const regexPath = path.replace(/:([^\/]+)/g, (match, name) => {
+            paramNames.push(name);
             return '([^/]+)';
         });
 

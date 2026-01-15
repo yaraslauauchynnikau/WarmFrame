@@ -24,16 +24,31 @@ class FactoryController {
     }
 
     async updateProduct(req, res) {
-        const existing = await productRepo.findById(req.params.id);
-        if (!existing) return res.status(404).json({ error: 'Not found' });
+        const id = req.params.id;
+        console.log(`[Controller] UPDATE Request for ID: "${id}"`);
 
-        const updated = { ...existing, ...req.body, id: existing.id };
-        await productRepo.save(updated);
-        res.status(200).json(updated);
+        const existing = await productRepo.findById(id);
+    
+        if (!existing) {
+            console.error(`[Controller] Product with ID "${id}" NOT FOUND in DB.`);
+            return res.status(404).json({ error: 'Not found' });
+        }
+
+        const updatedData = { 
+            ...existing, 
+            ...req.body, 
+            id: existing.id 
+        };
+
+        const result = await productRepo.save(updatedData);
+        res.status(200).json(result);
     }
 
     async deleteProduct(req, res) {
-        const deleted = await productRepo.delete(req.params.id);
+        const id = req.params.id;
+        console.log(`[Controller] DELETE Request for ID: "${id}"`);
+
+        const deleted = await productRepo.delete(id);
         if (!deleted) return res.status(404).json({ error: 'Not found' });
         res.status(200).json(deleted);
     }

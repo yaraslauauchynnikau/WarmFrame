@@ -5,78 +5,77 @@ const EventFactory = require('./EventFactory');
 const { ActionTypes } = require('./Constants');
 
 class BaseRepo {
-    constructor(moduleName, objectName) {
+    constructor(moduleName, entityName) {
         this.moduleName = moduleName;
-        this.objectName = objectName;
+        this.entityName = entityName;
 
         this.dbPath = path.join(
             __dirname,
-            `../modules/${moduleName}/data/${objectName}.json`
+            '..', 'modules', moduleName, 'data', `${entityName}.json`
         );
+
+        console.log(`[BaseRepo] Init ${entityName} at: ${this.dbPath}`);
     }
 
     async findAll() {
         try {
             const data = await fs.readFile(this.dbPath, 'utf-8');
-            return JSON.parse(data);
+            return data.trim() ? JSON.parse(data) : [];
+        } catch (e) { 
+            console.error(`[BaseRepo] READ ERROR for ${this.entityName}:`, e.message);
+            return []; 
         }
-        catch (e) { return []; }
     }
 
     async findById(id) {
         const data = await this.findAll();
-        return data.find(e => e.id === id);
+        return data.find(e => String(e.id).trim() === String(id).trim());
     }
 
     async save(object) {
         const data = await this.findAll();
-        const index = data.findIndex(item => item.id === object.id);
+        const index = data.findIndex(item => String(item.id).trim() === String(object.id).trim());
         
         let action = ActionTypes.CREATE;
         let prev = null;
 
         if (index !== -1) {
-            prev = data[index];
+            prev = JSON.parse(JSON.stringify(data[index]));
             data[index] = object;
             action = ActionTypes.UPDATE;
         } else {
             data.push(object);
         }
 
-        await fs.writeFile(
-            this.dbPath, 
-            JSON.stringify(data, null, 2)
-        );
+        await fs.writeFile(this.dbPath, JSON.stringify(data, null, 2));
         
         eventBus.dispatch(
             EventFactory.repoEvent({
                 module: this.moduleName,
-                object: this.objectName,
+                entity: this.entityName,
                 action,
                 prev,
                 next: object
             })
-        )
+        );
 
         return object;
     }
     
     async delete(id) {
         const data = await this.findAll();
-        const index = data.findIndex(e => e.id === id);
+        const index = data.findIndex(e => String(e.id).trim() === String(id).trim());
+        
         if (index === -1) return null;
 
         const [removed] = data.splice(index, 1);
 
-        await fs.writeFile(
-            this.dbPath,
-            JSON.stringify(data, null, 2)
-        );
+        await fs.writeFile(this.dbPath, JSON.stringify(data, null, 2));
 
         eventBus.dispatch(
             EventFactory.repoEvent({
                 module: this.moduleName,
-                object: this.objectName,
+                entity: this.entityName,
                 action: ActionTypes.DELETE,
                 prev: removed,
                 next: null

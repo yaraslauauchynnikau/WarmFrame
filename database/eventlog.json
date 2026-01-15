@@ -1,1 +1,231 @@
-[]
+[
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:35:06.177Z",
+    "payload": {
+      "module": "factory",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "591425e7-4c6e-4ebb-825c-67b1c4e1cdd9",
+        "createdAt": "2026-01-15T22:35:06.176Z",
+        "updatedAt": "2026-01-15T22:35:06.176Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:35:06.185Z",
+    "payload": {
+      "module": "factory",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "b10ba497-4eff-4f39-9cf2-d75aa00a7103",
+        "createdAt": "2026-01-15T22:35:06.184Z",
+        "updatedAt": "2026-01-15T22:35:06.184Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:43:48.325Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "572ff0fd-869b-4be9-bcec-44341bbb4c86",
+        "createdAt": "2026-01-15T22:43:48.324Z",
+        "updatedAt": "2026-01-15T22:43:48.324Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:43:48.333Z",
+    "payload": {
+      "module": "factory",
+      "entity": "workers",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "45faeec3-7ebd-4db5-9aa3-457124bdf079",
+        "createdAt": "2026-01-15T22:43:48.332Z",
+        "updatedAt": "2026-01-15T22:43:48.332Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:49:12.850Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "3e326804-1412-4e26-b5cf-1fc29390f9b8",
+        "createdAt": "2026-01-15T22:49:12.849Z",
+        "updatedAt": "2026-01-15T22:49:12.849Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:49:12.858Z",
+    "payload": {
+      "module": "factory",
+      "entity": "workers",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "1e386e56-8f4a-4104-8ebe-9a20cacff132",
+        "createdAt": "2026-01-15T22:49:12.858Z",
+        "updatedAt": "2026-01-15T22:49:12.858Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:53:33.697Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "6adb246d-91ca-4ebc-9bf9-7e0d733b983e",
+        "createdAt": "2026-01-15T22:53:33.696Z",
+        "updatedAt": "2026-01-15T22:53:33.696Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:53:33.705Z",
+    "payload": {
+      "module": "factory",
+      "entity": "workers",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "de1b41ef-9849-4664-8893-b381d3a16d2b",
+        "createdAt": "2026-01-15T22:53:33.704Z",
+        "updatedAt": "2026-01-15T22:53:33.704Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:55:03.367Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "5430a08e-4f02-4189-8667-1bb5f9b1dc41",
+        "createdAt": "2026-01-15T22:55:03.366Z",
+        "updatedAt": "2026-01-15T22:55:03.366Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:55:03.375Z",
+    "payload": {
+      "module": "factory",
+      "entity": "workers",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "929aa231-a99d-40a3-805b-e817333c96ae",
+        "createdAt": "2026-01-15T22:55:03.375Z",
+        "updatedAt": "2026-01-15T22:55:03.375Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:55:03.377Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "UPDATE",
+      "prev": {
+        "id": "5430a08e-4f02-4189-8667-1bb5f9b1dc41",
+        "createdAt": "2026-01-15T22:55:03.366Z",
+        "updatedAt": "2026-01-15T22:55:03.366Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      },
+      "next": {
+        "id": "5430a08e-4f02-4189-8667-1bb5f9b1dc41",
+        "createdAt": "2026-01-15T22:55:03.366Z",
+        "updatedAt": "2026-01-15T22:55:03.366Z",
+        "name": "Baikal i9",
+        "price": 600,
+        "isAvailable": false,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-15T22:55:03.379Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "DELETE",
+      "prev": {
+        "id": "5430a08e-4f02-4189-8667-1bb5f9b1dc41",
+        "createdAt": "2026-01-15T22:55:03.366Z",
+        "updatedAt": "2026-01-15T22:55:03.366Z",
+        "name": "Baikal i9",
+        "price": 600,
+        "isAvailable": false,
+        "tags": []
+      },
+      "next": null
+    }
+  }
+]
