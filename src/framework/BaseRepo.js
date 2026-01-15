@@ -11,7 +11,7 @@ class BaseRepo {
 
         this.dbPath = path.join(
             __dirname,
-            `../modules/${moduleName}/data/${entityName}.json`
+            `../modules/${moduleName}/data/${objectName}.json`
         );
     }
 
@@ -40,7 +40,7 @@ class BaseRepo {
             data[index] = object;
             action = ActionTypes.UPDATE;
         } else {
-            data.push(entity);
+            data.push(object);
         }
 
         await fs.writeFile(
@@ -51,14 +51,14 @@ class BaseRepo {
         eventBus.dispatch(
             EventFactory.repoEvent({
                 module: this.moduleName,
-                entity: this.entityName,
+                object: this.objectName,
                 action,
                 prev,
-                next: entity
+                next: object
             })
         )
 
-        return entity;
+        return object;
     }
     
     async delete(id) {
@@ -76,7 +76,7 @@ class BaseRepo {
         eventBus.dispatch(
             EventFactory.repoEvent({
                 module: this.moduleName,
-                entity: this.entityName,
+                object: this.objectName,
                 action: ActionTypes.DELETE,
                 prev: removed,
                 next: null
