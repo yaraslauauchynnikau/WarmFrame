@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "patternId": "1",
+    "language": "JavaScript",
+    "lines": 15,
+    "isWorking": true,
+    "tags": ["oop", "classic"],
+    "createdAt": "2026-01-15T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "patternId": "2",
+    "language": "JavaScript",
+    "lines": 25,
+    "isWorking": true,
+    "tags": ["behavior", "events"],
+    "createdAt": "2026-01-15T00:00:00.000Z"
+  }
+]
