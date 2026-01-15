@@ -1,0 +1,13 @@
+{
+  "name": "gym-management-api",
+  "version": "1.0.0",
+  "description": "API для управления тренажерным залом",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["gym", "fitness", "api", "nodejs"],
+  "author": "",
+  "license": "ISC"
+}
