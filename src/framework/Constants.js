@@ -1,21 +1,15 @@
-//Не уверен, что это должно быть в Constants,
-//Но этот класс является основой для enum названий всех
-//Объектов в проекте
-class BaseEnum {
-    constructor(enumObject) {
-        for (const key in enumObject) {
-            this[key] = enumObject[key];
-        }
+const BaseEnum = require('./BaseEnum');
 
-        Object.freeze(this);
-    }
+const ActionTypes = new BaseEnum({
+    CREATE: 'CREATE',
+    UPDATE: 'UPDATE',
+    DELETE: 'DELETE'
+});
 
-    exists(value) {
-        return Object.values(this).includes(value);
-    }
+const EventTypes = new BaseEnum({
+    REPO_ACTION: 'REPO_ACTION',
+    ERROR: 'ERROR'
+});
 
-    values() {
-        return Object.values(this);
-    }
-}
+module.exports = { ActionTypes, EventTypes };
 
