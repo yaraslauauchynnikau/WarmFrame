@@ -227,5 +227,88 @@
       },
       "next": null
     }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.516Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.544Z",
+    "payload": {
+      "module": "factory",
+      "entity": "workers",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "f01cd934-86af-4522-86a8-2fdf17a84b7c",
+        "createdAt": "2026-01-16T07:16:24.542Z",
+        "updatedAt": "2026-01-16T07:16:24.542Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.552Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "UPDATE",
+      "prev": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      },
+      "next": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 600,
+        "isAvailable": false,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.558Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "DELETE",
+      "prev": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 600,
+        "isAvailable": false,
+        "tags": []
+      },
+      "next": null
+    }
   }
 ]
