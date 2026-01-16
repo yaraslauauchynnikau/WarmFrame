@@ -1,6 +1,7 @@
 const { patternRepo, exampleRepo } = require('./patterns.repository');
-const DesignPattern = require('./pattern.pattern');
-const CodeExample = require('./pattern.example');
+const CodeExample = require('../sivmih/models/CodeExample');
+const DesignPattern = require('../sivmih/models/DesignPattern');
+
 
 class PatternsController {
     
