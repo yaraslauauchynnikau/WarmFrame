@@ -1,22 +1,21 @@
 {
-  "name": "warmframe",
+  "name": "l910-framework",
   "version": "1.0.0",
-  "description": "",
+  "description": "Лабораторная по Node.js фреймворку",
   "main": "index.js",
   "scripts": {
-    "test": "node run_tests.js",
-    "start": "node main.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yaraslauauchynnikau/WarmFrame.git"
+    "url": "git+https://github.com/maoww133/L910-Framework.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/yaraslauauchynnikau/WarmFrame/issues"
+    "url": "https://github.com/maoww133/L910-Framework/issues"
   },
-  "homepage": "https://github.com/yaraslauauchynnikau/WarmFrame#readme"
+  "homepage": "https://github.com/maoww133/L910-Framework#readme"
 }

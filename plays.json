@@ -1,0 +1,18 @@
+[
+  {
+    "id": "play1",
+    "title": "Гамлет",
+    "duration": 180,
+    "isClassic": true,
+    "premiereDate": "1603-01-01",
+    "genres": ["трагедия", "драма"]
+  },
+  {
+    "id": "play2",
+    "title": "Ромео и Джульетта",
+    "duration": 150,
+    "isClassic": true,
+    "premiereDate": "1597-01-01",
+    "genres": ["трагедия", "романтика"]
+  }
+]

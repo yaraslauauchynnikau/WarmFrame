@@ -1,0 +1,18 @@
+[
+  {
+    "id": "perf1",
+    "playId": "play1",
+    "date": "2026-02-01T19:00",
+    "seatsAvailable": 100,
+    "isSoldOut": false,
+    "actors": ["Актёр1", "Актёр2"]
+  },
+  {
+    "id": "perf2",
+    "playId": "play2",
+    "date": "2026-02-02T20:00",
+    "seatsAvailable": 50,
+    "isSoldOut": true,
+    "actors": ["Актёр3", "Актёр4"]
+  }
+]
