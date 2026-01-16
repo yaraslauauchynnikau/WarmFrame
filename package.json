@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node run_tests.js",
+    "patterns": "node run_tests_patterns.js",
     "start": "node main.js"
   },
   "repository": {

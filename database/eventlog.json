@@ -227,5 +227,211 @@
       },
       "next": null
     }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.516Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.544Z",
+    "payload": {
+      "module": "factory",
+      "entity": "workers",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "f01cd934-86af-4522-86a8-2fdf17a84b7c",
+        "createdAt": "2026-01-16T07:16:24.542Z",
+        "updatedAt": "2026-01-16T07:16:24.542Z",
+        "name": "Джотаро",
+        "role": "Рыбо-глушитель",
+        "salary": 150000
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.552Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "UPDATE",
+      "prev": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 500,
+        "isAvailable": true,
+        "tags": []
+      },
+      "next": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 600,
+        "isAvailable": false,
+        "tags": []
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:16:24.558Z",
+    "payload": {
+      "module": "factory",
+      "entity": "products",
+      "action": "DELETE",
+      "prev": {
+        "id": "5684421f-ee09-471a-9ed9-eb4ce1723739",
+        "createdAt": "2026-01-16T07:16:24.514Z",
+        "updatedAt": "2026-01-16T07:16:24.514Z",
+        "name": "Baikal i9",
+        "price": 600,
+        "isAvailable": false,
+        "tags": []
+      },
+      "next": null
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.516Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "patterns",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton",
+        "category": "Creational",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.542Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "examples",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "0888fc34-1523-4279-aa8f-e7ac0951b8ab",
+        "createdAt": "2026-01-16T07:27:53.540Z",
+        "updatedAt": "2026-01-16T07:27:53.540Z",
+        "patternId": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "language": "JavaScript",
+        "lines": 25,
+        "isWorking": true,
+        "tags": [
+          "node",
+          "single-instance"
+        ]
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.553Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "patterns",
+      "action": "UPDATE",
+      "prev": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton",
+        "category": "Creational",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      },
+      "next": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton (Updated)",
+        "category": "Creational / Global State",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.559Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "patterns",
+      "action": "DELETE",
+      "prev": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton (Updated)",
+        "category": "Creational / Global State",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      },
+      "next": null
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.564Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "examples",
+      "action": "DELETE",
+      "prev": {
+        "id": "0888fc34-1523-4279-aa8f-e7ac0951b8ab",
+        "createdAt": "2026-01-16T07:27:53.540Z",
+        "updatedAt": "2026-01-16T07:27:53.540Z",
+        "patternId": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "language": "JavaScript",
+        "lines": 25,
+        "isWorking": true,
+        "tags": [
+          "node",
+          "single-instance"
+        ]
+      },
+      "next": null
+    }
   }
 ]

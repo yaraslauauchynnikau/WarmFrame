@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "name": "Singleton",
+    "category": "Creational",
+    "isCreational": true,
+    "year": 1994,
+    "authors": [
+      "GoF"
+    ],
+    "createdAt": "1994-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Observer",
+    "category": "Behavioral",
+    "isCreational": false,
+    "year": 1994,
+    "authors": [
+      "GoF"
+    ],
+    "createdAt": "1994-01-01T00:00:00.000Z"
+  }
+]
