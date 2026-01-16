@@ -5,7 +5,9 @@
     "category": "Creational",
     "isCreational": true,
     "year": 1994,
-    "authors": ["GoF"],
+    "authors": [
+      "GoF"
+    ],
     "createdAt": "1994-01-01T00:00:00.000Z"
   },
   {
@@ -14,7 +16,9 @@
     "category": "Behavioral",
     "isCreational": false,
     "year": 1994,
-    "authors": ["GoF"],
+    "authors": [
+      "GoF"
+    ],
     "createdAt": "1994-01-01T00:00:00.000Z"
   }
 ]

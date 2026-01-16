@@ -1,6 +1,6 @@
 const ObjectBase = require("../../../framework/ObjectBase");
 
-class CodeExample extends BaseEntity {
+class CodeExample extends ObjectBase {
     constructor(data = {}) {
         super(data);
         this.patternId = data.patternId || "";

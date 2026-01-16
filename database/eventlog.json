@@ -310,5 +310,128 @@
       },
       "next": null
     }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.516Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "patterns",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton",
+        "category": "Creational",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.542Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "examples",
+      "action": "CREATE",
+      "prev": null,
+      "next": {
+        "id": "0888fc34-1523-4279-aa8f-e7ac0951b8ab",
+        "createdAt": "2026-01-16T07:27:53.540Z",
+        "updatedAt": "2026-01-16T07:27:53.540Z",
+        "patternId": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "language": "JavaScript",
+        "lines": 25,
+        "isWorking": true,
+        "tags": [
+          "node",
+          "single-instance"
+        ]
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.553Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "patterns",
+      "action": "UPDATE",
+      "prev": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton",
+        "category": "Creational",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      },
+      "next": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton (Updated)",
+        "category": "Creational / Global State",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      }
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.559Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "patterns",
+      "action": "DELETE",
+      "prev": {
+        "id": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "createdAt": "2026-01-16T07:27:53.513Z",
+        "updatedAt": "2026-01-16T07:27:53.513Z",
+        "name": "Singleton (Updated)",
+        "category": "Creational / Global State",
+        "isCreational": true,
+        "year": 1994,
+        "authors": [
+          "Gang of Four"
+        ]
+      },
+      "next": null
+    }
+  },
+  {
+    "type": "REPO_ACTION",
+    "timestamp": "2026-01-16T07:27:53.564Z",
+    "payload": {
+      "module": "sivmih",
+      "entity": "examples",
+      "action": "DELETE",
+      "prev": {
+        "id": "0888fc34-1523-4279-aa8f-e7ac0951b8ab",
+        "createdAt": "2026-01-16T07:27:53.540Z",
+        "updatedAt": "2026-01-16T07:27:53.540Z",
+        "patternId": "ac836fab-d520-4589-b047-fcbd79bc9e69",
+        "language": "JavaScript",
+        "lines": 25,
+        "isWorking": true,
+        "tags": [
+          "node",
+          "single-instance"
+        ]
+      },
+      "next": null
+    }
   }
 ]

@@ -1,7 +1,7 @@
 const App = require('./src/framework/App');
 const LogManager = require('./src/framework/LogManager');
 const factoryRoutes = require('./src/modules/factory/factory.router');
-
+const patternRoutes = require('./src/modules/sivmih/patterns.router');
 const PORT = 3000;
 
 LogManager.init();
@@ -9,6 +9,7 @@ LogManager.init();
 const app = new App();
 
 factoryRoutes(app);
+patternRoutes(app);
 
 app.use(async (req, res) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
