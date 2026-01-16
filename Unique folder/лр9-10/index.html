@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лабораторный сервис образцов</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f2f5; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
+        .card { background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .samples-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+        .sample-card { background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+        .sample-card h4 { margin: 0 0 10px 0; color: #3498db; }
+        .form-row { display: flex; gap: 10px; margin: 15px 0; }
+        input { padding: 10px; border: 1px solid #ddd; border-radius: 5px; flex: 1; }
+        button { padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #2980b9; }
+        .http-methods { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+        .method-btn { padding: 10px 15px; border-radius: 5px; color: white; font-weight: bold; }
+        .get { background: #27ae60; }
+        .post { background: #f39c12; }
+        .put { background: #3498db; }
+        .patch { background: #9b59b6; }
+        .delete { background: #e74c3c; }
+        .result { background: #2c3e50; color: white; padding: 15px; border-radius: 5px; margin-top: 20px; overflow-x: auto; }
+        .status { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 12px; margin-right: 10px; }
+        .status-200 { background: #27ae60; }
+        .status-201 { background: #2ecc71; }
+        .status-204 { background: #7f8c8d; }
+        .status-404 { background: #e74c3c; }
+        .status-500 { background: #c0392b; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-right: 5px; }
+        .badge-string { background: #3498db; }
+        .badge-number { background: #e74c3c; }
+        .badge-boolean { background: #9b59b6; }
+        .badge-date { background: #f39c12; }
+        .badge-array { background: #27ae60; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Лабораторный сервис образцов</h1>
+        
+        <div class="card">
+            <h2>Текущие образцы <span id="count">(0)</span></h2>
+            <div id="samples-container" class="samples-container">
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Создать новый образец</h2>
+            <div class="form-row">
+                <input type="text" id="name" placeholder="Название" value="Кровь пациента">
+                <input type="text" id="type" placeholder="Тип" value="Гематология">
+                <input type="number" id="volume" placeholder="Объем (мл)" value="5.0" step="0.1">
+                <button onclick="createSample()">Создать</button>
+            </div>
+            <p><small>Оставь поля пустыми для автогенерации данных</small></p>
+        </div>
+        
+        <div class="card">
+            <h2>HTTP Методы</h2>
+            <div class="http-methods">
+                <button class="method-btn get" onclick="getAllSamples()">GET /samples</button>
+                <button class="method-btn post" onclick="createAutoSample()">POST /samples (авто)</button>
+                <button class="method-btn put" onclick="updateSample()">PUT /samples/:id</button>
+                <button class="method-btn patch" onclick="patchSample()">PATCH /samples/:id</button>
+                <button class="method-btn delete" onclick="deleteSample()">DELETE /samples/:id</button>
+            </div>
+            <div style="margin-top: 15px;">
+                <label>ID для операций: </label>
+                <input type="text" id="sampleId" placeholder="ID образца" value="1" style="width: 200px;">
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Результат запроса</h2>
+            <div id="result" class="result">Нажмите любую кнопку для выполнения запроса...</div>
+        </div>
+    </div>
+
+    <script>
+        class LabFramework {
+            constructor() {
+                this.loadData();
+            }
+            
+            loadData() {
+                const saved = localStorage.getItem('lab_samples');
+                if (saved) {
+                    this.data = JSON.parse(saved);
+                } else {
+                    this.data = [
+                        {
+                            id: "1",
+                            name: "Кровь пациента",
+                            type: "Гематология",
+                            volume: 5.0,
+                            isProcessed: true,
+                            collectionDate: new Date().toISOString(),
+                            tests: ["Общий анализ", "Глюкоза", "Холестерин"]
+                        },
+                        {
+                            id: "2",
+                            name: "Моча пациента",
+                            type: "Химия",
+                            volume: 10.0,
+                            isProcessed: false,
+                            collectionDate: new Date().toISOString(),
+                            tests: ["pH", "Белок", "Глюкоза"]
+                        }
+                    ];
+                    this.save();
+                }
+            }
+            
+            save() {
+                localStorage.setItem('lab_samples', JSON.stringify(this.data, null, 2));
+                updateDisplay();
+            }
+            
+            getAll() {
+                return { status: 200, data: this.data };
+            }
+            
+            getById(id) {
+                const item = this.data.find(d => d.id === id);
+                return item ? { status: 200, data: item } : { status: 404, error: "Образец не найден" };
+            }
+            
+            create(data = {}) {
+                console.log("Создаем с данными:", data);
+                
+                const newItem = {
+                    id: Date.now().toString(),
+                    name: data.name || `Образец-${Math.floor(Math.random()*1000)}`,
+                    type: data.type || ['Гематология', 'Химия', 'Микробиология'][Math.floor(Math.random()*3)],
+                    volume: data.volume || (Math.random()*10 + 1),
+                    isProcessed: data.isProcessed !== undefined ? data.isProcessed : Math.random() > 0.5,
+                    collectionDate: new Date().toISOString(),
+                    tests: data.tests || ['Анализ 1', 'Анализ 2']
+                };
+                
+                this.data.push(newItem);
+                this.save();
+                return { status: 201, data: newItem };
+            }
+            
+            update(id, data = {}) {
+                const index = this.data.findIndex(d => d.id === id);
+                if (index === -1) return { status: 404, error: "Образец не найден" };
+                
+                this.data[index] = {
+                    id: id,
+                    name: data.name || `Обновленный-${Math.floor(Math.random()*1000)}`,
+                    type: data.type || this.data[index].type,
+                    volume: data.volume || this.data[index].volume,
+                    isProcessed: data.isProcessed !== undefined ? data.isProcessed : this.data[index].isProcessed,
+                    collectionDate: new Date().toISOString(),
+                    tests: data.tests || this.data[index].tests
+                };
+                this.save();
+                return { status: 200, data: this.data[index] };
+            }
+            
+            patch(id, data = {}) {
+                const index = this.data.findIndex(d => d.id === id);
+                if (index === -1) return { status: 404, error: "Образец не найден" };
+                
+                const timestamp = new Date().toLocaleTimeString().replace(/:/g, '-');
+                this.data[index] = {
+                    ...this.data[index],
+                    ...data,
+                    name: this.data[index].name + '_изм_' + timestamp
+                };
+                this.save();
+                return { status: 200, data: this.data[index] };
+            }
+            
+            delete(id) {
+                const initialLength = this.data.length;
+                this.data = this.data.filter(d => d.id !== id);
+                if (this.data.length === initialLength) {
+                    return { status: 404, error: "Образец не найден" };
+                }
+                this.save();
+                return { status: 204 };
+            }
+        }
+        
+        let lab = new LabFramework();
+        
+        function updateDisplay() {
+            const container = document.getElementById('samples-container');
+            const count = document.getElementById('count');
+            const data = lab.getAll().data;
+            
+            count.textContent = `(${data.length})`;
+            
+            if (data.length === 0) {
+                container.innerHTML = '<p>Нет образцов. Создайте первый!</p>';
+            } else {
+                container.innerHTML = data.map(sample => `
+                    <div class="sample-card">
+                        <h4>${sample.name}</h4>
+                        <p><strong>ID:</strong> ${sample.id}</p>
+                        <p><strong>Тип:</strong> ${sample.type}</p>
+                        <p><strong>Объем:</strong> ${sample.volume.toFixed(1)} мл</p>
+                        <p><strong>Обработан:</strong> ${sample.isProcessed ? '✅ Да' : '❌ Нет'}</p>
+                        <p><strong>Дата:</strong> ${new Date(sample.collectionDate).toLocaleString()}</p>
+                        <p><strong>Тесты:</strong> ${sample.tests.join(', ')}</p>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        function showResult(result) {
+            const resultEl = document.getElementById('result');
+            const status = result.status;
+            const statusClass = `status status-${status}`;
+            
+            let html = `<div><span class="${statusClass}">${status}</span>`;
+            
+            if (status === 200 || status === 201) {
+                html += `<strong>Успешно</strong></div>`;
+                html += `<pre style="margin-top: 10px;">${JSON.stringify(result.data, null, 2)}</pre>`;
+            } else if (status === 204) {
+                html += `<strong>Удалено</strong></div>`;
+                html += `<p style="margin-top: 10px;">Образец успешно удален</p>`;
+            } else {
+                html += `<strong>Ошибка</strong></div>`;
+                html += `<pre style="margin-top: 10px; color: #ff6b6b;">${JSON.stringify(result, null, 2)}</pre>`;
+            }
+            
+            resultEl.innerHTML = html;
+        }
+        
+        function getAllSamples() {
+            showResult(lab.getAll());
+        }
+        
+        function createSample() {
+            const name = document.getElementById('name').value.trim();
+            const type = document.getElementById('type').value.trim();
+            const volume = parseFloat(document.getElementById('volume').value);
+            
+            console.log("Введенные данные:", { name, type, volume });
+            
+            const data = {};
+            if (name) data.name = name;
+            if (type) data.type = type;
+            if (!isNaN(volume) && volume > 0) {
+                data.volume = volume;
+            }
+            
+            const result = lab.create(data);
+            showResult(result);
+            
+            if (result.status === 201) {
+                document.getElementById('name').value = '';
+                document.getElementById('type').value = '';
+                document.getElementById('volume').value = '5.0';
+            }
+        }
+        
+        function createAutoSample() {
+            const result = lab.create({});
+            showResult(result);
+        }
+        
+        function updateSample() {
+            const id = document.getElementById('sampleId').value.trim();
+            if (!id) {
+                showResult({ status: 400, error: "Укажите ID" });
+                return;
+            }
+            const result = lab.update(id, {
+                name: "Полностью обновленный образец",
+                volume: 7.5,
+                isProcessed: true
+            });
+            showResult(result);
+        }
+        
+        function patchSample() {
+            const id = document.getElementById('sampleId').value.trim();
+            if (!id) {
+                showResult({ status: 400, error: "Укажите ID" });
+                return;
+            }
+            const result = lab.patch(id, {
+                isProcessed: false
+            });
+            showResult(result);
+        }
+        
+        function deleteSample() {
+            const id = document.getElementById('sampleId').value.trim();
+            if (!id) {
+                showResult({ status: 400, error: "Укажите ID" });
+                return;
+            }
+            const result = lab.delete(id);
+            showResult(result);
+        }
+        
+        updateDisplay();
+        console.log('Лабораторный сервис запущен. Фреймворк: LabFramework');
+    </script>
+</body>
+</html>
