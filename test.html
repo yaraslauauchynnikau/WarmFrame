@@ -1,0 +1,41 @@
+### Переменные
+@hostname = localhost
+@port = 3000
+@baseUrl = http://{{hostname}}:{{port}}
+
+###
+GET {{baseUrl}}/products
+
+###
+# После нажатия Send Request, сервер вернет JSON с ID. 
+# Скопируйте этот ID для следующих тестов.
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+    "name": "Процессор i9",
+    "price": 500,
+    "isAvailable": true
+}
+
+###
+POST {{baseUrl}}/workers
+Content-Type: application/json
+
+{
+    "name": "Алексей",
+    "role": "Разработчик",
+    "salary": 150000
+}
+
+### 
+PUT {{baseUrl}}/products/ЗАМЕНИ_МЕНЯ
+Content-Type: application/json
+
+{
+    "price": 550,
+    "isAvailable": false
+}
+
+###
+DELETE {{baseUrl}}/products/ЗАМЕНИ_МЕНЯ
